@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* HidayahAI - Islamic Galaxy Theme Design System
+All colors MUST be HSL for optimal theming.
+*/
+
+@layer base {
+  :root {
+    /* Galaxy Background Theme */
+    --background: 222 47% 5%;
+    --foreground: 210 40% 98%;
+
+    /* Islamic Cards & Surfaces */
+    --card: 223 47% 8%;
+    --card-foreground: 210 40% 95%;
+
+    --popover: 223 47% 8%;
+    --popover-foreground: 210 40% 95%;
+
+    /* Islamic Green Primary */
+    --primary: 142 45% 45%;
+    --primary-foreground: 222 47% 5%;
+
+    /* Subtle Secondary */
+    --secondary: 223 47% 12%;
+    --secondary-foreground: 210 40% 90%;
+
+    /* Muted Galaxy Elements */
+    --muted: 223 47% 10%;
+    --muted-foreground: 215 15% 65%;
+
+    /* Golden Accent */
+    --accent: 45 85% 65%;
+    --accent-foreground: 222 47% 5%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 223 47% 15%;
+    --input: 223 47% 12%;
+    --ring: 142 45% 45%;
+
+    --radius: 0.75rem;
+
+    /* Galaxy Gradients */
+    --gradient-galaxy: linear-gradient(135deg, hsl(222 47% 5%) 0%, hsl(245 45% 8%) 25%, hsl(260 50% 10%) 50%, hsl(222 47% 5%) 100%);
+    --gradient-nebula: radial-gradient(ellipse at center, hsl(260 60% 15% / 0.3) 0%, transparent 70%);
+    --gradient-islamic: linear-gradient(135deg, hsl(142 45% 45%) 0%, hsl(160 40% 50%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(45 85% 65%) 0%, hsl(35 80% 60%) 100%);
+    
+    /* Cosmic Shadows */
+    --shadow-cosmic: 0 25px 50px -12px hsl(142 45% 45% / 0.25);
+    --shadow-card: 0 10px 25px -5px hsl(222 47% 3% / 0.5);
+    --shadow-glow: 0 0 30px hsl(142 45% 45% / 0.3);
+
+    /* Islamic Sidebar */
+    --sidebar-background: 223 47% 6%;
+    --sidebar-foreground: 210 40% 90%;
+    --sidebar-primary: 142 45% 45%;
+    --sidebar-primary-foreground: 222 47% 5%;
+    --sidebar-accent: 223 47% 10%;
+    --sidebar-accent-foreground: 210 40% 90%;
+    --sidebar-border: 223 47% 12%;
+    --sidebar-ring: 142 45% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter;
+    background: var(--gradient-galaxy);
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+
+  /* Galaxy Stars Animation */
+  .stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 3s infinite ease-in-out;
+  }
+
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.2); }
+  }
+
+  /* Islamic Typography */
+  .font-arabic {
+    font-family: 'Amiri', serif;
+    font-feature-settings: 'liga' on, 'calt' on;
+  }
+
+  .font-inter {
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* Cosmic Components */
+  .glass-card {
+    @apply bg-card/20 backdrop-blur-md border border-border/30;
+    box-shadow: var(--shadow-card);
+  }
+
+  .cosmic-glow {
+    box-shadow: var(--shadow-cosmic);
+  }
+
+  .islamic-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  /* Scroll animations */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
